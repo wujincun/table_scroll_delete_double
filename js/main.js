@@ -8,9 +8,8 @@ $(function () {
     var $contentLine = $content.find('tr');
     $contentLine.each(function (key,value) {
         var $thisLineN = $(value).find('td');
-        $thisCol.each(function (key,vule) {
+        $thisLineN.each(function (key,vule) {
 
         });
-
     })
 })
