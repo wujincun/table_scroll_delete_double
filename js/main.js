@@ -2,6 +2,7 @@
  * Created by Administrator on 2016/11/11.
  */
 $(function () {
+    var operation = $('.operation');
     var $title = $('.title');
     var $titleLine = $title.find('tr');
     var $content = $('.content');
@@ -35,7 +36,8 @@ $(function () {
         }
     });
     function scrollBarHide(){
-        var $contentH = $content.height();
+        var linH = $scrollBar.find('tr:visible');
+        var $contentH = linH.height()* linH.length;
         $content.css({
             height: $contentH +'px'
         });
@@ -43,5 +45,17 @@ $(function () {
             height: $contentH + 10 +'px'
         });
     }
+    operation.on('click',function () {
+        if($(this).hasClass('toHide')){
+            $(this).removeClass('toHide').addClass('toShow').text('显示');
+            $('.showHide').hide();
+            scrollBarHide()
+        }else{
+            $(this).removeClass('toShow').addClass('toHide').text('隐藏');
+            $('.showHide').show();
+            scrollBarHide()
+        }
+    })
+    
 
 });
