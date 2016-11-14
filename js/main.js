@@ -5,8 +5,11 @@ $(function () {
     var $title = $('.title');
     var $titleLine = $title.find('tr');
     var $content = $('.content');
-    var $contentLine = $content.find('tr');
+    var $scrollBar = $content.find('.overScrollBar');
+    var $contentLine = $scrollBar.find('tr');
     var flagObj = {};
+
+    scrollBarHide();
     $contentLine.each(function (key,value) {
         var lineObj = {};
         flagObj[key] = true;
@@ -31,5 +34,14 @@ $(function () {
             $titleLine.eq(key).addClass('showHide')
         }
     });
+    function scrollBarHide(){
+        var $contentH = $content.height();
+        $content.css({
+            height: $contentH +'px'
+        });
+        $scrollBar.css({
+            height: $contentH + 10 +'px'
+        });
+    }
 
 });
