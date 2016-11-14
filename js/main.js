@@ -13,7 +13,7 @@ $(function () {
         var $thisLineN = $(value).find('td');
         if($thisLineN.length != 0){
             $thisLineN.each(function (index,numValue) {
-                var thisNum = Number($(numValue).text());
+                var thisNum = $(numValue).text();
                 if(index == 0){
                     lineObj[0] = thisNum;
                 }else{
